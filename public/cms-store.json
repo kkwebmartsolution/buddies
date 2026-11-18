@@ -1,0 +1,300 @@
+{
+  "site": {
+    "name": "Buddies Production",
+    "shortName": "Buddies",
+    "tagline": "Cinematic stories, crafted frame by frame.",
+    "description": "Buddies Production is a premium film & video production studio in Guwahati, Assam — crafting cinematic commercials, music videos, documentaries and wedding films.",
+    "location": {
+      "label": "Narikal Bari, Guwahati, Assam 781024",
+      "address": "5QCQ+46F, Narikal Bari, Guwahati, Assam 781024",
+      "mapsQuery": "5QCQ+46F Narikal Bari Guwahati Assam 781024"
+    },
+    "social": {
+      "whatsapp": "917002445448",
+      "whatsappMessage": "Hi Buddies Production, I'd love to talk about a project.",
+      "instagram": "buddiesproduction",
+      "youtube": "@buddiesproduction",
+      "email": "hello@buddiesproduction.in"
+    }
+  },
+  "hero": {
+    "subtitle": "Film & Video Production Studio",
+    "line1": "We make",
+    "line2Words": [
+      "cinema.",
+      "videos.",
+      "songs.",
+      "albums.",
+      "commercials."
+    ],
+    "paragraph": "A premium production studio in Guwahati crafting commercials, music videos, documentaries and wedding films with obsessive cinematic detail."
+  },
+  "about": {
+    "tag": "The Studio",
+    "titleMain": "A crew of storytellers obsessed with the",
+    "titleRed": "perfect frame.",
+    "description": "Buddies Production is a full-service film studio based in Guwahati, Assam. From the first spark of an idea to the final graded frame, we handle direction, cinematography, editing and sound in-house — so every project keeps its soul from script to screen.",
+    "cardTitle": "Behind every frame",
+    "cardDesc": "Directors, DOPs, editors and colourists — one team, one vision.",
+    "aboutImage": "/src/assets/about.jpg",
+    "stats": [
+      {
+        "value": "250+",
+        "label": "Films delivered"
+      },
+      {
+        "value": "80+",
+        "label": "Brands & artists"
+      },
+      {
+        "value": "12",
+        "label": "Years in craft"
+      },
+      {
+        "value": "40M+",
+        "label": "Views generated"
+      }
+    ]
+  },
+  "services": [
+    {
+      "no": "01",
+      "title": "Commercials & Ads",
+      "body": "High-impact brand films and TV commercials engineered to sell, shot with cinema-grade craft."
+    },
+    {
+      "no": "02",
+      "title": "Music Videos",
+      "body": "Bold, rhythm-driven visuals with striking art direction that make artists unforgettable."
+    },
+    {
+      "no": "03",
+      "title": "Documentaries",
+      "body": "Honest, emotional storytelling — from concept and interviews to the final graded cut."
+    },
+    {
+      "no": "04",
+      "title": "Wedding Films",
+      "body": "Timeless cinematic wedding films that turn a single day into a story worth reliving."
+    },
+    {
+      "no": "05",
+      "title": "Post Production",
+      "body": "Editing, sound design, VFX and colour grading that give every frame its final polish."
+    },
+    {
+      "no": "06",
+      "title": "Aerial & Drone",
+      "body": "Sweeping cinematic aerials and dynamic movement that add scale and drama to any scene."
+    }
+  ],
+  "works": [
+    {
+      "id": 1,
+      "title": "Upcoming Project",
+      "category": "Short Film",
+      "year": "2026",
+      "image": "/uploads/1786985942385-hq720.jpg.jpeg"
+    },
+    {
+      "id": 2,
+      "title": "New Album",
+      "category": "Music Video",
+      "year": "2026",
+      "image": "/uploads/1786986546097-Image-81537.jpg.jpeg"
+    },
+    {
+      "id": 3,
+      "title": "The Quiet Hour",
+      "category": "Documentary",
+      "year": "2024",
+      "image": "/uploads/1786986684578-Image-4086.jpg.jpeg"
+    },
+    {
+      "id": 4,
+      "title": "Forever & A Day",
+      "category": "Wedding Film",
+      "year": "2024",
+      "image": "/uploads/1786987049646-maxresdefault.jpg.jpeg"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "youtubeId": "AAxfSlwR56A",
+      "title": "Tumak Bohut Bhalpau | Deeplina Deka & Sameer Shekhar",
+      "category": "Song",
+      "description": "Singer -  Deeplina Deka & Sameer Shekhar \n"
+    },
+    {
+      "id": 2,
+      "youtubeId": "tiPT7OEN6Xg",
+      "title": "Kenekoi Bujao - Official Music Video | 13 'Thirteen' | 4K | Tanmoy Saikia | Rabbani Soyam | Buddies",
+      "category": "Music Video",
+      "description": "Vocals : Tanmoy Saikia , Lyrics and Composition : Tanmoy Saikia , Music Producer & Arranger : Dhruba Basumatary ,Guitars & Ukulele : Ben Rabha, Mix and Master : Koustav Saikia"
+    },
+    {
+      "id": 3,
+      "youtubeId": "gFGJUle-cLk",
+      "title": "13 Thirteen | 4k | Assamese Film | Rabbani Soyam & Boibhabi Goswami | Buddies Production",
+      "category": "Short Film",
+      "description": "STORY & DIRECTION RABBANI SOYAM"
+    },
+    {
+      "id": 4,
+      "youtubeId": "3lQnUUxAUzY",
+      "title": "Niveer Aru Tara - নিবিৰ আৰু তাৰা । Assamese web Film | Rabbani Soyam & Celesti Bairagey | Buddies",
+      "category": "Short Film",
+      "description": "Starring Rabbani Soyam and Celesti Bairagey "
+    },
+    {
+      "youtubeId": "7u523zMJDTo",
+      "title": "Bhalpuwa Kinu Hoi | Film - Niveer Aru Tara |Bhaskar & Aakangkhya | Rabbani & Celesti",
+      "category": "Music Video",
+      "description": "Bhalpuwa Kinu Hoi | Film - Niveer Aru Tara |Bhaskar & Aakangkhya | Rabbani & Celesti"
+    },
+    {
+      "youtubeId": "wk4S3dhWAso",
+      "title": "Music Video 4K",
+      "category": "Music Video",
+      "description": "সৰু সৰু ধেমালি - Xoru Xoru Dhemali | Official Music Video 4K | Neel Akash | Rabbani Soyam "
+    }
+  ],
+  "rentals": [
+    {
+      "id": 1,
+      "icon": "Camera",
+      "title": "Cinema Cameras",
+      "description": "RED, ARRI & Sony cinema bodies with pro media, ready for any format from commercials to features.",
+      "tag": "From ₹8,000 / day",
+      "image": "/src/assets/rental-camera.jpg"
+    },
+    {
+      "id": 2,
+      "icon": "Aperture",
+      "title": "Prime & Zoom Lenses",
+      "description": "Full sets of cinema primes and zooms — sharp, characterful glass for every focal length you need.",
+      "tag": "From ₹2,500 / day",
+      "image": "/src/assets/rental-lenses.jpg"
+    },
+    {
+      "id": 3,
+      "icon": "Lightbulb",
+      "title": "Lighting Kits",
+      "description": "Aputure, Nanlux & HMI lighting with modifiers, stands and grip to shape dramatic, cinematic looks.",
+      "tag": "From ₹4,000 / day",
+      "image": "/src/assets/rental-lighting.jpg"
+    },
+    {
+      "id": 4,
+      "icon": "Plane",
+      "title": "Drones & Aerial",
+      "description": "Licensed drone rigs for sweeping cinematic aerials, with certified pilots available on request.",
+      "tag": "From ₹6,000 / day",
+      "image": "/src/assets/rental-drone.jpg"
+    },
+    {
+      "id": 5,
+      "icon": "Mic",
+      "title": "Audio & Sound",
+      "description": "Boom kits, lav sets, field recorders and monitoring for clean, broadcast-ready production sound.",
+      "tag": "From ₹3,000 / day",
+      "image": "/src/assets/rental-audio.jpg"
+    },
+    {
+      "id": 6,
+      "icon": "Move",
+      "title": "Gimbals & Movement",
+      "description": "Sliders, dollies, gimbals and stabilised rigs to add smooth, dynamic motion to every shot.",
+      "tag": "From ₹2,000 / day",
+      "image": "/src/assets/rental-gimbal.jpg"
+    }
+  ],
+  "dubbing": {
+    "tag": "Studio Booking",
+    "titleMain": "Dubbing & Sound",
+    "titleRed": "Recording Studio",
+    "description": "Guwahati's premier soundproof acoustic facility for cinema dubbing, song recording, dialogue ADR, podcasts, and commercial voiceovers — fully equipped with industry-standard gear.",
+    "image": "/src/assets/dubbing-studio.jpg",
+    "badge1": "Slots Available Now",
+    "badge2": "Acoustic Treated Booth",
+    "cardTitle": "Book Your Studio Session",
+    "cardDesc": "Instant slot reservation & sound engineer assistance",
+    "buttonText": "Book on WhatsApp",
+    "whatsappMessage": "Hi Buddies Production, I want to book a slot for the Dubbing & Recording Studio. Please share available timings and rates.",
+    "features": [
+      {
+        "icon": "Mic",
+        "title": "Cinema Dubbing Booth",
+        "desc": "Acoustically isolated vocal suite with multi-layer soundproofing for clean, resonant voice takes."
+      },
+      {
+        "icon": "Headphones",
+        "title": "Vocal & Music Recording",
+        "desc": "High-end studio condenser mics (Neumann, Shure, AKG) for singers, voiceover artists & podcasts."
+      },
+      {
+        "icon": "Volume2",
+        "title": "Foley, SFX & Audio Post",
+        "desc": "Dedicated Foley space, custom sound design, ADR, audio restoration and stereo/5.1 cinematic mix."
+      },
+      {
+        "icon": "Radio",
+        "title": "Live Video Sync Monitoring",
+        "desc": "Zero-latency picture-to-sound sync playback monitors for flawless dubbing and character timing."
+      }
+    ]
+  },
+  "costumes": {
+    "tag": "Wardrobe & Styling",
+    "titleMain": "Character Costume",
+    "titleRed": "Rentals & Wardrobe",
+    "description": "Bring your characters to life with our extensive rental inventory of cinema-grade period costumes, cultural attires, dramatic theater outfits, and custom styling props in Guwahati.",
+    "image": "/src/assets/costume-rental.jpg",
+    "badge": "Full Wardrobe Catalog Available",
+    "bannerTitle": "Fitted, Dry-Cleaned & Ready For Shoot",
+    "bannerDesc": "Hundreds of ready character outfits, historical garments, crowns, accessories & on-set dresser support.",
+    "buttonText": "Enquire Costumes on WhatsApp",
+    "whatsappMessage": "Hi Buddies Production, I want to rent character costumes for my shoot. Please share available catalog and sizes.",
+    "categories": [
+      {
+        "icon": "Crown",
+        "title": "Historical & Period Royalty",
+        "tag": "From ₹2,000 / day",
+        "desc": "Elaborate royal attire, embroidered robes, crowns, jewelry and velvet garments for period cinema & epics."
+      },
+      {
+        "icon": "Palette",
+        "title": "Traditional & Cultural Outfits",
+        "tag": "From ₹1,200 / day",
+        "desc": "Authentic Assamese folk & cultural wardrobe, Bihu costumes, traditional silk drapes, turbans and ornaments."
+      },
+      {
+        "icon": "Shield",
+        "title": "Theatrical, Action & Mythological",
+        "tag": "From ₹2,500 / day",
+        "desc": "Character armor, warrior vests, stage drama outfits, custom mythical character sets and prop weaponry."
+      },
+      {
+        "icon": "Shirt",
+        "title": "Modern & Music Video Stylized",
+        "tag": "From ₹1,500 / day",
+        "desc": "High-fashion couture, edgy streetwear, leather jackets and designer ensembles tailored for screen visuals."
+      }
+    ]
+  },
+  "partners": [
+    "Commercials",
+    "Music Videos",
+    "Documentaries",
+    "Wedding Films",
+    "Colour Grading",
+    "Sound Design",
+    "Aerial",
+    "Story"
+  ],
+  "studio": {
+    "address": "5QCQ+46F, Narikal Bari, Guwahati, Assam 781024",
+    "mapsQuery": "5QCQ+46F Narikal Bari Guwahati Assam 781024"
+  }
+}
