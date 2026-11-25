@@ -47,10 +47,16 @@ export const Route = createFileRoute("/api/admin/upload")({
           }
 
           const ext = matches[1] || "jpg";
+          if (!["jpeg", "jpg", "png", "webp", "gif"].includes(ext.toLowerCase()) || base64.length > 7 * 1024 * 1024) {
+            return new Response(JSON.stringify({ success: false, message: "Use a JPG, PNG, WebP or GIF image up to 5 MB." }), { status: 400, headers: { "Content-Type": "application/json" } });
+          }
           const buffer = Buffer.from(matches[2], "base64");
+          if (buffer.length > 5 * 1024 * 1024) {
+            return new Response(JSON.stringify({ success: false, message: "Image must be under 5 MB." }), { status: 400, headers: { "Content-Type": "application/json" } });
+          }
           const safeName = `${Date.now()}-${filename.replace(/[^a-zA-Z0-9.-]/g, "_")}.${ext}`;
 
-          const uploadsDir = path.join(process.cwd(), "public", "uploads");
+          const uploadsDir = process.env.UPLOAD_DIR || path.join(process.cwd(), "storage", "uploads");
           if (!fs.existsSync(uploadsDir)) {
             fs.mkdirSync(uploadsDir, { recursive: true });
           }

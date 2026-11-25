@@ -14,6 +14,9 @@ import "@fontsource-variable/inter";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { RentalCartProvider } from "@/components/rentals/cart-context";
+import { getWebsiteTheme } from "@/lib/website-theme";
+import { ThemeController } from "@/components/theme-controller";
 
 function NotFoundComponent() {
   return (
@@ -76,6 +79,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: () => getWebsiteTheme(),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -108,8 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         name: "twitter:description",
-        content:
-          "Premium film & video production in Guwahati — crafted frame by frame.",
+        content: "Premium film & video production in Guwahati — crafted frame by frame.",
       },
     ],
     links: [
@@ -127,8 +130,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const theme = Route.useLoaderData();
   return (
-    <html lang="en">
+    <html lang="en" data-theme={theme}>
       <head>
         <HeadContent />
       </head>
@@ -142,11 +146,15 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const theme = Route.useLoaderData();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ThemeController initialTheme={theme} />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <RentalCartProvider>
+        <Outlet />
+      </RentalCartProvider>
     </QueryClientProvider>
   );
 }

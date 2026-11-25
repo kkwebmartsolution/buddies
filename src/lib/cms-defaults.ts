@@ -14,6 +14,7 @@ import costumeRentalImg from "@/assets/costume-rental.jpg";
 
 export interface CmsData {
   site: {
+    theme: "light" | "dark";
     name: string;
     shortName: string;
     tagline: string;
@@ -120,6 +121,7 @@ export interface CmsData {
 
 export const defaultCmsData: CmsData = {
   site: {
+    theme: "dark",
     name: "Buddies Production",
     shortName: "Buddies",
     tagline: "Cinematic stories, crafted frame by frame.",
@@ -396,23 +398,34 @@ export function deepMergeCmsData(base: CmsData, override: any): CmsData {
     about: {
       ...base.about,
       ...(override.about || {}),
-      stats: override.about?.stats && Array.isArray(override.about.stats) ? override.about.stats : base.about.stats,
+      stats:
+        override.about?.stats && Array.isArray(override.about.stats)
+          ? override.about.stats
+          : base.about.stats,
     },
-    services: override.services && Array.isArray(override.services) ? override.services : base.services,
+    services:
+      override.services && Array.isArray(override.services) ? override.services : base.services,
     works: override.works && Array.isArray(override.works) ? override.works : base.works,
     videos: override.videos && Array.isArray(override.videos) ? override.videos : base.videos,
     rentals: override.rentals && Array.isArray(override.rentals) ? override.rentals : base.rentals,
     dubbing: {
       ...base.dubbing,
       ...(override.dubbing || {}),
-      features: override.dubbing?.features && Array.isArray(override.dubbing.features) ? override.dubbing.features : base.dubbing?.features,
+      features:
+        override.dubbing?.features && Array.isArray(override.dubbing.features)
+          ? override.dubbing.features
+          : base.dubbing?.features,
     },
     costumes: {
       ...base.costumes,
       ...(override.costumes || {}),
-      categories: override.costumes?.categories && Array.isArray(override.costumes.categories) ? override.costumes.categories : base.costumes?.categories,
+      categories:
+        override.costumes?.categories && Array.isArray(override.costumes.categories)
+          ? override.costumes.categories
+          : base.costumes?.categories,
     },
-    partners: override.partners && Array.isArray(override.partners) ? override.partners : base.partners,
+    partners:
+      override.partners && Array.isArray(override.partners) ? override.partners : base.partners,
     studio: { ...base.studio, ...(override.studio || {}) },
   };
 }

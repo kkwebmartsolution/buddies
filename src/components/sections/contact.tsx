@@ -6,7 +6,7 @@ import { whatsappUrl, instagramUrl } from "@/lib/site";
 
 export function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden border-t border-white/10 py-28 sm:py-40">
+    <section id="contact" className="relative overflow-hidden border-t border-border py-28 sm:py-40">
       <div className="absolute inset-0 -z-10 bg-hero-glow opacity-80" />
       <div className="mx-auto max-w-5xl px-5 text-center sm:px-8">
         <p className="mb-8 text-xs font-medium uppercase tracking-[0.4em] text-muted-foreground">
@@ -42,7 +42,7 @@ export function Contact() {
               href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-full border border-white/15 px-8 py-4 text-base font-semibold text-foreground transition-colors hover:bg-white/5"
+              className="inline-flex items-center gap-3 rounded-full border border-border px-8 py-4 text-base font-semibold text-foreground transition-colors hover:bg-muted"
             >
               <Instagram className="size-5" />
               See more on Instagram

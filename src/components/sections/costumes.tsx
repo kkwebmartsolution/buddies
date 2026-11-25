@@ -80,7 +80,7 @@ export function Costumes() {
 
         {/* Highlight Banner & Image */}
         <ScaleReveal>
-          <div className="group relative mb-12 overflow-hidden rounded-3xl border border-white/10 bg-card/60 backdrop-blur">
+          <div className="group relative mb-12 overflow-hidden rounded-3xl border border-border bg-card/60 backdrop-blur">
             <div className="relative aspect-[16/9] max-h-[480px] w-full overflow-hidden sm:aspect-[21/9]">
               <img
                 src={costumes.image || defaultCmsData.costumes.image}
@@ -100,7 +100,7 @@ export function Costumes() {
                       {costumes.badge}
                     </span>
                   )}
-                  <h3 className="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">
+                  <h3 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
                     {costumes.bannerTitle || "Fitted, Dry-Cleaned & Ready For Shoot"}
                   </h3>
                   <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
@@ -110,13 +110,11 @@ export function Costumes() {
 
                 <Magnetic>
                   <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/costume-rentals"
                     className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-bold text-black shadow-[0_0_20px_rgba(37,211,102,0.3)] transition-transform hover:scale-105 hover:bg-[#22c35e]"
                   >
-                    <WhatsAppIcon className="size-5 fill-black" />
-                    <span>{costumes.buttonText || "Enquire Costumes on WhatsApp"}</span>
+                    <Shirt className="size-5" />
+                    <span>Explore & book costumes</span>
                   </a>
                 </Magnetic>
               </div>
@@ -138,14 +136,14 @@ export function Costumes() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-card/50 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/80 hover:shadow-glow"
+                className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card/50 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/80 hover:shadow-glow"
               >
                 <div>
                   <div className="flex items-center justify-between">
                     <span className="grid size-12 place-items-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                       <Icon className="size-6" />
                     </span>
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-foreground">
+                    <span className="rounded-full border border-border bg-muted px-3 py-1 text-xs font-semibold text-foreground">
                       {c.tag}
                     </span>
                   </div>
@@ -159,13 +157,11 @@ export function Costumes() {
                 </div>
 
                 <a
-                  href={itemWhatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Rent ${c.title} on WhatsApp`}
+                  href="/costume-rentals"
+                  aria-label={`Browse ${c.title} rentals`}
                   className="mt-6 inline-flex items-center gap-2 text-xs font-semibold text-primary transition-colors group-hover:text-foreground"
                 >
-                  Rent on WhatsApp
+                  Browse costumes
                   <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </motion.article>

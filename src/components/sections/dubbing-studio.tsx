@@ -87,7 +87,7 @@ export function DubbingStudio() {
           {/* Studio Image & Booking Card */}
           <div className="lg:col-span-7">
             <ScaleReveal>
-              <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card/60 backdrop-blur">
+              <div className="group relative overflow-hidden rounded-3xl border border-border bg-card/60 backdrop-blur">
                 <div className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/10]">
                   <img
                     src={dubbing.image || defaultCmsData.dubbing.image}
@@ -101,7 +101,7 @@ export function DubbingStudio() {
                   
                   {/* Floating Badges */}
                   {dubbing.badge1 && (
-                    <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/15 bg-black/60 px-3.5 py-1.5 backdrop-blur-md">
+                    <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-border bg-black/60 px-3.5 py-1.5 backdrop-blur-md">
                       <span className="size-2 animate-pulse rounded-full bg-emerald-500" />
                       <span className="text-xs font-semibold text-white">{dubbing.badge1}</span>
                     </div>
@@ -114,12 +114,12 @@ export function DubbingStudio() {
                   )}
 
                   {/* Overlay Action */}
-                  <div className="absolute inset-x-5 bottom-5 flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/75 p-6 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between">
+                  <div className="absolute inset-x-5 bottom-5 flex flex-col gap-4 rounded-2xl border border-border bg-black/75 p-6 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <h3 className="font-display text-xl font-bold text-white">
                         {dubbing.cardTitle || "Book Your Studio Session"}
                       </h3>
-                      <p className="mt-1 text-xs text-muted-foreground">
+                      <p className="mt-1 text-xs text-white/70">
                         {dubbing.cardDesc || "Instant slot reservation & sound engineer assistance"}
                       </p>
                     </div>
@@ -167,7 +167,7 @@ export function DubbingStudio() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className="flex items-start gap-4 rounded-2xl border border-white/5 bg-card/40 p-4 transition-colors hover:border-primary/30 hover:bg-card/70"
+                    className="flex items-start gap-4 rounded-2xl border border-border bg-card/40 p-4 transition-colors hover:border-primary/30 hover:bg-card/70"
                   >
                     <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
                       <Icon className="size-5" />
@@ -183,7 +183,7 @@ export function DubbingStudio() {
 
             {/* Direct WhatsApp Callout */}
             <Reveal delay={0.2}>
-              <div className="mt-2 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-primary/5 p-5 sm:flex-row">
+              <div className="mt-2 flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-primary/5 p-5 sm:flex-row">
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="size-5 shrink-0 text-emerald-400" />
                   <span className="text-xs text-muted-foreground">

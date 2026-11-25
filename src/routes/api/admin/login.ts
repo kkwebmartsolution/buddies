@@ -19,7 +19,7 @@ export const Route = createFileRoute("/api/admin/login")({
               {
                 headers: {
                   "Content-Type": "application/json",
-                  "Set-Cookie": `buddies_admin_token=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800`,
+                  "Set-Cookie": `buddies_admin_token=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800${new URL(process.env.APP_ORIGIN || request.url).protocol === "https:" ? "; Secure" : ""}`,
                 },
               },
             );

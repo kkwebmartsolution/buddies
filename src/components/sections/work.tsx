@@ -35,7 +35,7 @@ export function Work() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: (i % 2) * 0.1 }}
-            className={`group relative block overflow-hidden rounded-3xl border border-white/10 ${
+            className={`group relative block overflow-hidden rounded-3xl border border-border ${
               i % 3 === 0 ? "sm:col-span-2" : ""
             }`}
           >

@@ -38,6 +38,16 @@ export const Route = createFileRoute("/api/admin/update")({
             );
           }
 
+          if (
+            section === "site" &&
+            data.theme !== undefined &&
+            !["light", "dark"].includes(data.theme)
+          ) {
+            return Response.json(
+              { success: false, message: "Choose a light or dark website theme." },
+              { status: 400 },
+            );
+          }
           await saveSectionData(section as keyof CmsData, data);
 
           return new Response(
@@ -47,9 +57,12 @@ export const Route = createFileRoute("/api/admin/update")({
             }),
             { headers: { "Content-Type": "application/json" } },
           );
-        } catch (err: any) {
+        } catch (err) {
           return new Response(
-            JSON.stringify({ success: false, message: err.message || "Failed to update section" }),
+            JSON.stringify({
+              success: false,
+              message: err instanceof Error ? err.message : "Failed to update section",
+            }),
             { status: 500, headers: { "Content-Type": "application/json" } },
           );
         }

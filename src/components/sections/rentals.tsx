@@ -70,7 +70,7 @@ export function Rentals() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, ease: easeOut, delay: (i % 3) * 0.08 }}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-card/60 backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow"
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card/60 backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -95,13 +95,11 @@ export function Rentals() {
                     {r.description}
                   </p>
                   <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/rentals"
                     aria-label={`Book ${r.title}`}
                     className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors group-hover:text-foreground"
                   >
-                    Book this kit
+                    Browse & book rentals
                     <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 </div>
@@ -111,7 +109,7 @@ export function Rentals() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-14 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-card/60 p-8 backdrop-blur sm:flex-row sm:p-10">
+          <div className="mt-14 flex flex-col items-center justify-between gap-6 rounded-3xl border border-border bg-card/60 p-8 backdrop-blur sm:flex-row sm:p-10">
             <div>
               <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">
                 Need a custom package?
@@ -124,12 +122,10 @@ export function Rentals() {
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <Magnetic>
                 <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/rentals"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-transform glow-red hover:scale-[1.03] sm:w-auto"
                 >
-                  Book Now
+                  Explore rental shop
                   <ArrowUpRight className="size-4" />
                 </a>
               </Magnetic>
@@ -138,7 +134,7 @@ export function Rentals() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-white/5 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted sm:w-auto"
                 >
                   Get a Quote
                 </a>

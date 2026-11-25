@@ -30,7 +30,7 @@ export function Services() {
         </Reveal>
       </div>
 
-      <div className="grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-px overflow-hidden rounded-3xl border border-border bg-muted sm:grid-cols-2 lg:grid-cols-3">
         {servicesList.map((s, i) => (
           <motion.article
             key={s.no}

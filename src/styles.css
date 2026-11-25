@@ -93,7 +93,8 @@
     oklch(0.06 0.006 20 / 0) 55%
   );
   --gradient-red: linear-gradient(135deg, oklch(0.58 0.238 26), oklch(0.7 0.2 30));
-  --shadow-glow: 0 0 0 1px oklch(0.58 0.238 26 / 0.35), 0 20px 60px -20px oklch(0.58 0.238 26 / 0.55);
+  --shadow-glow:
+    0 0 0 1px oklch(0.58 0.238 26 / 0.35), 0 20px 60px -20px oklch(0.58 0.238 26 / 0.55);
   --shadow-elevate: 0 30px 80px -40px oklch(0 0 0 / 0.9);
 
   --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
@@ -192,8 +193,12 @@
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @utility animate-marquee {
@@ -201,13 +206,21 @@
 }
 
 @keyframes track-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes track-right {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @utility animate-track-left {
@@ -219,10 +232,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .animate-marquee { animation: none; }
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
   .animate-track-left,
-  .animate-track-right { animation: none; }
+  .animate-track-right {
+    animation: none;
+  }
 }
 
 /* Admin Light Mode Theme Overrides */
@@ -241,3 +260,114 @@
   opacity: 0.025;
 }
 
+/* Shared surfaces keep the website, rental admin and portaled dialogs in sync. */
+:root {
+  color-scheme: dark;
+}
+:root[data-theme="light"],
+.admin-light-mode {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: oklch(0 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0 0 0);
+  --popover: #ffffff;
+  --popover-foreground: oklch(0 0 0);
+  --primary: #dc163c;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f1f2;
+  --secondary-foreground: oklch(0 0 0);
+  --muted: #f6f3f4;
+  --muted-foreground: oklch(0.3 0 0);
+  --accent: #dc163c;
+  --accent-foreground: #ffffff;
+  --border: #e7dfe2;
+  --input: #dfd5d9;
+  --ring: #dc163c;
+  --shadow-elevate: 0 20px 60px -30px rgb(66 21 33 / 18%);
+  --gradient-hero: radial-gradient(
+    120% 120% at 70% 20%,
+    rgb(255 219 226 / 55%) 0%,
+    transparent 55%
+  );
+}
+:root[data-theme="light"] .text-emerald-300 {
+  color: #047857;
+}
+:root[data-theme="light"] .text-amber-300,
+:root[data-theme="light"] .text-amber-200,
+:root[data-theme="light"] .text-amber-100\/80 {
+  color: #92400e;
+}
+:root[data-theme="light"] .text-red-300 {
+  color: #b91c1c;
+}
+:root[data-theme="light"] .film-grain {
+  opacity: 0;
+}
+
+/* Neutral headings and glass surfaces must follow the selected theme. */
+:root[data-theme="light"] .text-gradient,
+.admin-light-mode .text-gradient {
+  background: none;
+  color: var(--foreground);
+  -webkit-text-fill-color: currentColor;
+}
+
+:root[data-theme="light"] .glass,
+.admin-light-mode .glass {
+  background: oklch(1 0 0 / 0.94);
+  border-color: var(--border);
+}
+
+:root[data-theme="light"] .site-header {
+  background: oklch(1 0 0 / 0.96);
+}
+
+/* Keep the light hero readable while retaining the cinematic photograph. */
+:root[data-theme="light"] .site-hero {
+  padding-top: 12rem;
+  background: #fff;
+}
+
+:root[data-theme="light"] .hero-image {
+  overflow: hidden;
+  scale: 1 !important;
+  transform: none;
+}
+
+:root[data-theme="light"] .hero-overlay {
+  background:
+    linear-gradient(to top, #fff 3%, rgb(255 255 255 / 95%) 24%, transparent 75%),
+    linear-gradient(to right, #fff 5%, rgb(255 255 255 / 94%) 35%, rgb(255 255 255 / 25%) 100%);
+}
+
+:root[data-theme="light"] .hero-glow {
+  display: none;
+}
+
+:root[data-theme="light"] .site-hero .text-gradient-red {
+  background: none;
+  color: #c41235;
+  -webkit-text-fill-color: currentColor;
+  filter: none !important;
+}
+
+:root[data-theme="light"] .site-hero .glow-red {
+  box-shadow: 0 8px 24px rgb(196 18 53 / 18%);
+}
+
+@media (max-width: 767px) {
+  :root[data-theme="light"] .site-hero {
+    padding-top: 19rem;
+  }
+
+  :root[data-theme="light"] .hero-image,
+  :root[data-theme="light"] .hero-overlay {
+    height: 21rem;
+  }
+
+  :root[data-theme="light"] .hero-overlay {
+    background: linear-gradient(to bottom, rgb(255 255 255 / 10%) 30%, #fff 95%);
+  }
+}

@@ -18,7 +18,7 @@ function VideoCard({ v }: { v: Video }) {
 
   return (
     <article className="w-[78vw] shrink-0 sm:w-[46vw] lg:w-[32vw] xl:w-[28rem]">
-      <div className="group relative aspect-video overflow-hidden rounded-3xl border border-white/10 bg-card shadow-elevate">
+      <div className="group relative aspect-video overflow-hidden rounded-3xl border border-border bg-card shadow-elevate">
         {playing ? (
           <iframe
             className="size-full"
@@ -68,7 +68,7 @@ function VideoCard({ v }: { v: Video }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Watch ${v.title} on YouTube`}
-          className="mt-1 inline-flex shrink-0 items-center gap-1 rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold text-foreground transition-colors hover:bg-white/5"
+          className="mt-1 inline-flex shrink-0 items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-foreground transition-colors hover:bg-muted"
         >
           YouTube
           <ArrowUpRight className="size-3.5" />

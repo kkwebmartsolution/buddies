@@ -245,17 +245,16 @@ function NormalLoader({ onDone }: { onDone?: () => void }) {
  * and NormalLoader for rentals, other pages, or reloads.
  */
 export function Loader({ onDone, isHome = false }: LoaderProps) {
-  const [shouldShowVideo, setShouldShowVideo] = useState(() => {
-    if (typeof window === "undefined") return false;
-    // Check if on home page and hasn't seen the intro yet
-    const isActuallyHome = isHome || window.location.pathname === "/";
-    const hasSeenIntro = sessionStorage.getItem("buddies_intro_seen") === "true";
-    return isActuallyHome && !hasSeenIntro;
-  });
+  const [shouldShowVideo, setShouldShowVideo] = useState(false);
 
   useEffect(() => {
     const isActuallyHome = isHome || window.location.pathname === "/";
-    const hasSeenIntro = sessionStorage.getItem("buddies_intro_seen") === "true";
+    let hasSeenIntro = false;
+    try {
+      hasSeenIntro = sessionStorage.getItem("buddies_intro_seen") === "true";
+    } catch {
+      /* Storage can be disabled. */
+    }
     setShouldShowVideo(isActuallyHome && !hasSeenIntro);
   }, [isHome]);
 

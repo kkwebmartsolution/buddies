@@ -25,7 +25,7 @@ export function Footer() {
 
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-white/10 bg-card/40">
+    <footer className="border-t border-border bg-card/40">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
@@ -118,7 +118,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-muted-foreground sm:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
           <p>
             © {year} {site.name}. All rights reserved.
           </p>

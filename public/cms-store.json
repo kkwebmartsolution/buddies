@@ -1,5 +1,6 @@
 {
   "site": {
+    "theme": "dark",
     "name": "Buddies Production",
     "shortName": "Buddies",
     "tagline": "Cinematic stories, crafted frame by frame.",

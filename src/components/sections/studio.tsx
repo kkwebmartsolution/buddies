@@ -73,7 +73,7 @@ export function Studio() {
                   href={instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-3 rounded-2xl border border-white/15 px-6 py-5 text-foreground transition-colors hover:bg-white/5"
+                  className="flex items-center justify-between gap-3 rounded-2xl border border-border px-6 py-5 text-foreground transition-colors hover:bg-muted"
                 >
                   <span className="flex items-center gap-3 font-semibold">
                     <Instagram className="size-5" />
@@ -87,7 +87,7 @@ export function Studio() {
         </div>
 
         <ScaleReveal>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10">
+          <div className="relative overflow-hidden rounded-3xl border border-border">
             <iframe
               title={`Map showing ${site.name} in Guwahati`}
               src={mapsEmbedUrl}

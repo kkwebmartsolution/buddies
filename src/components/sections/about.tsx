@@ -47,7 +47,7 @@ export function About() {
         </div>
 
         <ScaleReveal>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10">
+          <div className="relative overflow-hidden rounded-3xl border border-border">
             <img
               src={imageSrc}
               alt="Film crew around a cinema camera on set with dramatic red lighting"

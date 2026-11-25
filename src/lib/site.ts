@@ -49,7 +49,7 @@ export const navLinks = [
   { label: "Services", href: "/#services" },
   { label: "Rentals", href: "/rentals" },
   { label: "Dubbing", href: "/#dubbing" },
-  { label: "Costumes", href: "/#costumes" },
+  { label: "Costumes", href: "/costume-rentals" },
   { label: "Studio", href: "/#studio" },
   { label: "Contact", href: "/#contact" },
 ] as const;

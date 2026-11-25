@@ -83,9 +83,9 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative flex min-h-dvh items-end overflow-hidden"
+      className="site-hero relative isolate flex min-h-dvh items-end overflow-hidden"
     >
-      <div className="absolute inset-0 -z-10 scale-110">
+      <div className="hero-image absolute inset-0 -z-10 scale-110">
         <img
           ref={imgRef}
           src={heroImg}
@@ -96,8 +96,8 @@ export function Hero() {
           className="size-full object-cover"
         />
       </div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/70 to-background/30" />
-      <div className="absolute inset-0 -z-10 bg-hero-glow" />
+      <div className="hero-overlay absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/70 to-background/30" />
+      <div className="hero-glow absolute inset-0 -z-10 bg-hero-glow" />
 
       <div className="mx-auto w-full max-w-7xl px-5 pb-16 sm:px-8 sm:pb-24">
         <motion.p
@@ -159,7 +159,7 @@ export function Hero() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-white/5"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
               >
                 Start a project
               </a>

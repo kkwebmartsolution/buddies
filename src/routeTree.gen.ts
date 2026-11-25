@@ -10,20 +10,48 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CostumeRentalsRouteImport } from './routes/costume-rentals'
 import { Route as RentalsRouteImport } from './routes/rentals'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminRentalsRouteImport } from './routes/admin/rentals'
 import { Route as ApiContentRouteImport } from './routes/api/content'
 import { Route as ApiTrackViewRouteImport } from './routes/api/track-view'
+import { Route as RentalItemProductIdRouteImport } from './routes/rental-item/$productId'
+import { Route as UploadsFilenameRouteImport } from './routes/uploads/$filename'
 import { Route as ApiAdminAnalyticsRouteImport } from './routes/api/admin/analytics'
 import { Route as ApiAdminLoginRouteImport } from './routes/api/admin/login'
+import { Route as ApiAdminLogoutRouteImport } from './routes/api/admin/logout'
 import { Route as ApiAdminUpdateRouteImport } from './routes/api/admin/update'
 import { Route as ApiAdminUploadRouteImport } from './routes/api/admin/upload'
+import { Route as ApiRentalsAccountRouteImport } from './routes/api/rentals/account'
+import { Route as ApiRentalsAdminRouteImport } from './routes/api/rentals/admin'
+import { Route as ApiRentalsBookingsRouteImport } from './routes/api/rentals/bookings'
+import { Route as ApiRentalsCatalogRouteImport } from './routes/api/rentals/catalog'
+import { Route as ApiRentalsPaymentRouteImport } from './routes/api/rentals/payment'
+import { Route as ApiRentalsWebhookRouteImport } from './routes/api/rentals/webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CostumeRentalsRoute = CostumeRentalsRouteImport.update({
+  id: '/costume-rentals',
+  path: '/costume-rentals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RentalsRoute = RentalsRouteImport.update({
@@ -46,6 +74,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRentalsRoute = AdminRentalsRouteImport.update({
+  id: '/admin/rentals',
+  path: '/admin/rentals',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiContentRoute = ApiContentRouteImport.update({
   id: '/api/content',
   path: '/api/content',
@@ -54,6 +87,16 @@ const ApiContentRoute = ApiContentRouteImport.update({
 const ApiTrackViewRoute = ApiTrackViewRouteImport.update({
   id: '/api/track-view',
   path: '/api/track-view',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RentalItemProductIdRoute = RentalItemProductIdRouteImport.update({
+  id: '/rental-item/$productId',
+  path: '/rental-item/$productId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UploadsFilenameRoute = UploadsFilenameRouteImport.update({
+  id: '/uploads/$filename',
+  path: '/uploads/$filename',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAdminAnalyticsRoute = ApiAdminAnalyticsRouteImport.update({
@@ -66,6 +109,11 @@ const ApiAdminLoginRoute = ApiAdminLoginRouteImport.update({
   path: '/api/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAdminLogoutRoute = ApiAdminLogoutRouteImport.update({
+  id: '/api/admin/logout',
+  path: '/api/admin/logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAdminUpdateRoute = ApiAdminUpdateRouteImport.update({
   id: '/api/admin/update',
   path: '/api/admin/update',
@@ -76,101 +124,222 @@ const ApiAdminUploadRoute = ApiAdminUploadRouteImport.update({
   path: '/api/admin/upload',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiRentalsAccountRoute = ApiRentalsAccountRouteImport.update({
+  id: '/api/rentals/account',
+  path: '/api/rentals/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiRentalsAdminRoute = ApiRentalsAdminRouteImport.update({
+  id: '/api/rentals/admin',
+  path: '/api/rentals/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiRentalsBookingsRoute = ApiRentalsBookingsRouteImport.update({
+  id: '/api/rentals/bookings',
+  path: '/api/rentals/bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiRentalsCatalogRoute = ApiRentalsCatalogRouteImport.update({
+  id: '/api/rentals/catalog',
+  path: '/api/rentals/catalog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiRentalsPaymentRoute = ApiRentalsPaymentRouteImport.update({
+  id: '/api/rentals/payment',
+  path: '/api/rentals/payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiRentalsWebhookRoute = ApiRentalsWebhookRouteImport.update({
+  id: '/api/rentals/webhook',
+  path: '/api/rentals/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/cart': typeof CartRoute
+  '/costume-rentals': typeof CostumeRentalsRoute
   '/rentals': typeof RentalsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/rentals': typeof AdminRentalsRoute
   '/api/content': typeof ApiContentRoute
   '/api/track-view': typeof ApiTrackViewRoute
+  '/rental-item/$productId': typeof RentalItemProductIdRoute
+  '/uploads/$filename': typeof UploadsFilenameRoute
   '/admin/': typeof AdminIndexRoute
   '/api/admin/analytics': typeof ApiAdminAnalyticsRoute
   '/api/admin/login': typeof ApiAdminLoginRoute
+  '/api/admin/logout': typeof ApiAdminLogoutRoute
   '/api/admin/update': typeof ApiAdminUpdateRoute
   '/api/admin/upload': typeof ApiAdminUploadRoute
+  '/api/rentals/account': typeof ApiRentalsAccountRoute
+  '/api/rentals/admin': typeof ApiRentalsAdminRoute
+  '/api/rentals/bookings': typeof ApiRentalsBookingsRoute
+  '/api/rentals/catalog': typeof ApiRentalsCatalogRoute
+  '/api/rentals/payment': typeof ApiRentalsPaymentRoute
+  '/api/rentals/webhook': typeof ApiRentalsWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/cart': typeof CartRoute
+  '/costume-rentals': typeof CostumeRentalsRoute
   '/rentals': typeof RentalsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/rentals': typeof AdminRentalsRoute
   '/api/content': typeof ApiContentRoute
   '/api/track-view': typeof ApiTrackViewRoute
+  '/rental-item/$productId': typeof RentalItemProductIdRoute
+  '/uploads/$filename': typeof UploadsFilenameRoute
   '/admin': typeof AdminIndexRoute
   '/api/admin/analytics': typeof ApiAdminAnalyticsRoute
   '/api/admin/login': typeof ApiAdminLoginRoute
+  '/api/admin/logout': typeof ApiAdminLogoutRoute
   '/api/admin/update': typeof ApiAdminUpdateRoute
   '/api/admin/upload': typeof ApiAdminUploadRoute
+  '/api/rentals/account': typeof ApiRentalsAccountRoute
+  '/api/rentals/admin': typeof ApiRentalsAdminRoute
+  '/api/rentals/bookings': typeof ApiRentalsBookingsRoute
+  '/api/rentals/catalog': typeof ApiRentalsCatalogRoute
+  '/api/rentals/payment': typeof ApiRentalsPaymentRoute
+  '/api/rentals/webhook': typeof ApiRentalsWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/cart': typeof CartRoute
+  '/costume-rentals': typeof CostumeRentalsRoute
   '/rentals': typeof RentalsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/rentals': typeof AdminRentalsRoute
   '/api/content': typeof ApiContentRoute
   '/api/track-view': typeof ApiTrackViewRoute
+  '/rental-item/$productId': typeof RentalItemProductIdRoute
+  '/uploads/$filename': typeof UploadsFilenameRoute
   '/admin/': typeof AdminIndexRoute
   '/api/admin/analytics': typeof ApiAdminAnalyticsRoute
   '/api/admin/login': typeof ApiAdminLoginRoute
+  '/api/admin/logout': typeof ApiAdminLogoutRoute
   '/api/admin/update': typeof ApiAdminUpdateRoute
   '/api/admin/upload': typeof ApiAdminUploadRoute
+  '/api/rentals/account': typeof ApiRentalsAccountRoute
+  '/api/rentals/admin': typeof ApiRentalsAdminRoute
+  '/api/rentals/bookings': typeof ApiRentalsBookingsRoute
+  '/api/rentals/catalog': typeof ApiRentalsCatalogRoute
+  '/api/rentals/payment': typeof ApiRentalsPaymentRoute
+  '/api/rentals/webhook': typeof ApiRentalsWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/account'
+    | '/cart'
+    | '/costume-rentals'
     | '/rentals'
     | '/sitemap.xml'
     | '/admin/login'
+    | '/admin/rentals'
     | '/api/content'
     | '/api/track-view'
+    | '/rental-item/$productId'
+    | '/uploads/$filename'
     | '/admin/'
     | '/api/admin/analytics'
     | '/api/admin/login'
+    | '/api/admin/logout'
     | '/api/admin/update'
     | '/api/admin/upload'
+    | '/api/rentals/account'
+    | '/api/rentals/admin'
+    | '/api/rentals/bookings'
+    | '/api/rentals/catalog'
+    | '/api/rentals/payment'
+    | '/api/rentals/webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/account'
+    | '/cart'
+    | '/costume-rentals'
     | '/rentals'
     | '/sitemap.xml'
     | '/admin/login'
+    | '/admin/rentals'
     | '/api/content'
     | '/api/track-view'
+    | '/rental-item/$productId'
+    | '/uploads/$filename'
     | '/admin'
     | '/api/admin/analytics'
     | '/api/admin/login'
+    | '/api/admin/logout'
     | '/api/admin/update'
     | '/api/admin/upload'
+    | '/api/rentals/account'
+    | '/api/rentals/admin'
+    | '/api/rentals/bookings'
+    | '/api/rentals/catalog'
+    | '/api/rentals/payment'
+    | '/api/rentals/webhook'
   id:
     | '__root__'
     | '/'
+    | '/account'
+    | '/cart'
+    | '/costume-rentals'
     | '/rentals'
     | '/sitemap.xml'
     | '/admin/login'
+    | '/admin/rentals'
     | '/api/content'
     | '/api/track-view'
+    | '/rental-item/$productId'
+    | '/uploads/$filename'
     | '/admin/'
     | '/api/admin/analytics'
     | '/api/admin/login'
+    | '/api/admin/logout'
     | '/api/admin/update'
     | '/api/admin/upload'
+    | '/api/rentals/account'
+    | '/api/rentals/admin'
+    | '/api/rentals/bookings'
+    | '/api/rentals/catalog'
+    | '/api/rentals/payment'
+    | '/api/rentals/webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  CartRoute: typeof CartRoute
+  CostumeRentalsRoute: typeof CostumeRentalsRoute
   RentalsRoute: typeof RentalsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminRentalsRoute: typeof AdminRentalsRoute
   ApiContentRoute: typeof ApiContentRoute
   ApiTrackViewRoute: typeof ApiTrackViewRoute
+  RentalItemProductIdRoute: typeof RentalItemProductIdRoute
+  UploadsFilenameRoute: typeof UploadsFilenameRoute
   AdminIndexRoute: typeof AdminIndexRoute
   ApiAdminAnalyticsRoute: typeof ApiAdminAnalyticsRoute
   ApiAdminLoginRoute: typeof ApiAdminLoginRoute
+  ApiAdminLogoutRoute: typeof ApiAdminLogoutRoute
   ApiAdminUpdateRoute: typeof ApiAdminUpdateRoute
   ApiAdminUploadRoute: typeof ApiAdminUploadRoute
+  ApiRentalsAccountRoute: typeof ApiRentalsAccountRoute
+  ApiRentalsAdminRoute: typeof ApiRentalsAdminRoute
+  ApiRentalsBookingsRoute: typeof ApiRentalsBookingsRoute
+  ApiRentalsCatalogRoute: typeof ApiRentalsCatalogRoute
+  ApiRentalsPaymentRoute: typeof ApiRentalsPaymentRoute
+  ApiRentalsWebhookRoute: typeof ApiRentalsWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -180,6 +349,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/costume-rentals': {
+      id: '/costume-rentals'
+      path: '/costume-rentals'
+      fullPath: '/costume-rentals'
+      preLoaderRoute: typeof CostumeRentalsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rentals': {
@@ -210,6 +400,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/rentals': {
+      id: '/admin/rentals'
+      path: '/admin/rentals'
+      fullPath: '/admin/rentals'
+      preLoaderRoute: typeof AdminRentalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/content': {
       id: '/api/content'
       path: '/api/content'
@@ -222,6 +419,20 @@ declare module '@tanstack/react-router' {
       path: '/api/track-view'
       fullPath: '/api/track-view'
       preLoaderRoute: typeof ApiTrackViewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rental-item/$productId': {
+      id: '/rental-item/$productId'
+      path: '/rental-item/$productId'
+      fullPath: '/rental-item/$productId'
+      preLoaderRoute: typeof RentalItemProductIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uploads/$filename': {
+      id: '/uploads/$filename'
+      path: '/uploads/$filename'
+      fullPath: '/uploads/$filename'
+      preLoaderRoute: typeof UploadsFilenameRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/admin/analytics': {
@@ -238,6 +449,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/admin/logout': {
+      id: '/api/admin/logout'
+      path: '/api/admin/logout'
+      fullPath: '/api/admin/logout'
+      preLoaderRoute: typeof ApiAdminLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/admin/update': {
       id: '/api/admin/update'
       path: '/api/admin/update'
@@ -252,21 +470,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAdminUploadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/rentals/account': {
+      id: '/api/rentals/account'
+      path: '/api/rentals/account'
+      fullPath: '/api/rentals/account'
+      preLoaderRoute: typeof ApiRentalsAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/rentals/admin': {
+      id: '/api/rentals/admin'
+      path: '/api/rentals/admin'
+      fullPath: '/api/rentals/admin'
+      preLoaderRoute: typeof ApiRentalsAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/rentals/bookings': {
+      id: '/api/rentals/bookings'
+      path: '/api/rentals/bookings'
+      fullPath: '/api/rentals/bookings'
+      preLoaderRoute: typeof ApiRentalsBookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/rentals/catalog': {
+      id: '/api/rentals/catalog'
+      path: '/api/rentals/catalog'
+      fullPath: '/api/rentals/catalog'
+      preLoaderRoute: typeof ApiRentalsCatalogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/rentals/payment': {
+      id: '/api/rentals/payment'
+      path: '/api/rentals/payment'
+      fullPath: '/api/rentals/payment'
+      preLoaderRoute: typeof ApiRentalsPaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/rentals/webhook': {
+      id: '/api/rentals/webhook'
+      path: '/api/rentals/webhook'
+      fullPath: '/api/rentals/webhook'
+      preLoaderRoute: typeof ApiRentalsWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  CartRoute: CartRoute,
+  CostumeRentalsRoute: CostumeRentalsRoute,
   RentalsRoute: RentalsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AdminRentalsRoute: AdminRentalsRoute,
   ApiContentRoute: ApiContentRoute,
   ApiTrackViewRoute: ApiTrackViewRoute,
+  RentalItemProductIdRoute: RentalItemProductIdRoute,
+  UploadsFilenameRoute: UploadsFilenameRoute,
   AdminIndexRoute: AdminIndexRoute,
   ApiAdminAnalyticsRoute: ApiAdminAnalyticsRoute,
   ApiAdminLoginRoute: ApiAdminLoginRoute,
+  ApiAdminLogoutRoute: ApiAdminLogoutRoute,
   ApiAdminUpdateRoute: ApiAdminUpdateRoute,
   ApiAdminUploadRoute: ApiAdminUploadRoute,
+  ApiRentalsAccountRoute: ApiRentalsAccountRoute,
+  ApiRentalsAdminRoute: ApiRentalsAdminRoute,
+  ApiRentalsBookingsRoute: ApiRentalsBookingsRoute,
+  ApiRentalsCatalogRoute: ApiRentalsCatalogRoute,
+  ApiRentalsPaymentRoute: ApiRentalsPaymentRoute,
+  ApiRentalsWebhookRoute: ApiRentalsWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

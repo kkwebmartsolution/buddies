@@ -23,6 +23,8 @@ export function getDbPool(): mysql.Pool | null {
       password,
       database,
       port,
+      connectTimeout: 5000,
+      dateStrings: true,
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,

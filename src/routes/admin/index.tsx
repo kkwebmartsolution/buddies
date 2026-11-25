@@ -37,6 +37,7 @@ import {
   Moon,
 } from "lucide-react";
 import { defaultCmsData, type CmsData } from "@/lib/cms-defaults";
+import { RentalAdmin } from "@/components/rentals/admin";
 
 export const Route = createFileRoute("/admin/")({
   component: AdminDashboard,
@@ -46,6 +47,9 @@ export const Route = createFileRoute("/admin/")({
 });
 
 type TabType =
+  | "rental-shop"
+  | "rentals-content"
+  | "costumes-content"
   | "dashboard"
   | "site"
   | "hero"
@@ -84,6 +88,7 @@ function AdminDashboard() {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
     localStorage.setItem("admin_theme", nextTheme);
+    window.dispatchEvent(new Event("admin-theme-change"));
   };
   const [logs, setLogs] = useState<ActivityLog[]>([
     {
@@ -178,9 +183,13 @@ function AdminDashboard() {
       .catch(() => {});
   }, [navigate]);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    const response = await fetch("/api/admin/logout", { method: "POST" });
+    if (!response.ok) {
+      setMessage({ text: "Could not sign out. Please try again.", type: "error" });
+      return;
+    }
     localStorage.removeItem("buddies_admin_token");
-    document.cookie = "buddies_admin_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     navigate({ to: "/admin/login" });
   };
 
@@ -215,6 +224,7 @@ function AdminDashboard() {
       if (result.success) {
         setMessage({ text: `Section '${String(sectionKey)}' saved successfully!`, type: "success" });
         setData((prev) => ({ ...prev, [sectionKey]: sectionData }));
+        if (sectionKey === "site") localStorage.setItem("website-theme-updated", String(Date.now()));
         addActivityLog(`Saved ${String(sectionKey).toUpperCase()} section`, "Changes saved to database & JSON store", "update");
       } else {
         setMessage({ text: result.message || "Failed to save section", type: "error" });
@@ -274,6 +284,14 @@ function AdminDashboard() {
   // Sidebar Menu Items Definition
   const menuGroups = [
     {
+      title: "RENTAL COMMERCE",
+      items: [
+        { id: "rental-shop", label: "Bookings & Customers", icon: Briefcase, count: null },
+        { id: "rentals", label: "Equipment Products", icon: Camera, count: null },
+        { id: "costumes", label: "Costume Products", icon: Shirt, count: null },
+      ],
+    },
+    {
       title: "OVERVIEW",
       items: [{ id: "dashboard", label: "Dashboard Analytics", icon: LayoutDashboard, count: null }],
     },
@@ -286,9 +304,9 @@ function AdminDashboard() {
         { id: "services", label: "Services Offered", icon: Layers, count: data.services?.length },
         { id: "works", label: "Portfolio Works", icon: Briefcase, count: data.works?.length },
         { id: "videos", label: "Video Showcase", icon: Video, count: data.videos?.length },
-        { id: "rentals", label: "Equipment Kits", icon: Camera, count: data.rentals?.length },
+        { id: "rentals-content", label: "Equipment Page Content", icon: Camera, count: data.rentals?.length },
         { id: "dubbing", label: "Dubbing & Recording", icon: Mic, count: data.dubbing?.features?.length },
-        { id: "costumes", label: "Costume Rentals", icon: Shirt, count: data.costumes?.categories?.length },
+        { id: "costumes-content", label: "Costume Page Content", icon: Shirt, count: data.costumes?.categories?.length },
       ],
     },
     {
@@ -486,6 +504,9 @@ function AdminDashboard() {
 
         {/* Main Workspace Body */}
         <main className="flex-1 p-4 sm:p-8 space-y-8 relative z-10">
+          {activeTab === "rental-shop" && <RentalAdmin key="all" />}
+          {activeTab === "rentals" && <RentalAdmin key="equipment" initialKind="equipment" />}
+          {activeTab === "costumes" && <RentalAdmin key="costume" initialKind="costume" />}
           {/* Notification Toast */}
           {message && (
             <div
@@ -760,6 +781,20 @@ function AdminDashboard() {
                   <Save className="size-4" /> Save Site Settings
                 </button>
               </div>
+
+              <fieldset className="rounded-2xl border border-border bg-background p-5">
+                <legend className="px-2 text-sm font-semibold">Website appearance</legend>
+                <p className="mb-4 text-sm text-muted-foreground">Choose the theme visitors see. Save Site Settings to publish it. Your admin theme stays separate.</p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {(["light", "dark"] as const).map((mode) => (
+                    <label key={mode} className={`flex cursor-pointer items-center gap-3 rounded-xl border p-4 ${(data.site.theme || "dark") === mode ? "border-primary ring-1 ring-primary" : "border-border"}`}>
+                      <input type="radio" name="website-theme" value={mode} checked={(data.site.theme || "dark") === mode} onChange={() => setData({ ...data, site: { ...data.site, theme: mode } })} className="accent-primary" />
+                      <span className={`flex size-10 items-center justify-center rounded-lg border ${mode === "light" ? "border-red-200 bg-white text-red-600" : "border-red-900 bg-zinc-950 text-red-500"}`}>{mode === "light" ? <Sun size={20} /> : <Moon size={20} />}</span>
+                      <span className="text-sm font-medium">{mode === "light" ? "Light — white & red" : "Dark — charcoal & red"}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
@@ -1396,7 +1431,7 @@ function AdminDashboard() {
           )}
 
           {/* RENTALS TAB */}
-          {activeTab === "rentals" && (
+          {activeTab === "rentals-content" && (
             <div className="rounded-3xl border border-white/15 bg-card/70 p-6 sm:p-8 backdrop-blur-2xl shadow-2xl relative space-y-6">
               <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-t-3xl" />
               <div className="flex items-center justify-between border-b border-white/10 pb-5">
@@ -1961,7 +1996,7 @@ function AdminDashboard() {
           )}
 
           {/* COSTUME RENTALS TAB */}
-          {activeTab === "costumes" && (
+          {activeTab === "costumes-content" && (
             <div className="rounded-3xl border border-white/15 bg-card/70 p-6 sm:p-8 backdrop-blur-2xl shadow-2xl relative space-y-6">
               <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-t-3xl" />
               <div className="flex items-center justify-between border-b border-white/10 pb-5">

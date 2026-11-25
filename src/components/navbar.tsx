@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, UserRound, ShoppingBag } from "lucide-react";
+import { useRentalCart } from "@/components/rentals/cart-context";
 import { Magnetic } from "@/components/anim/magnetic";
 import { navLinks, site as staticSite, whatsappUrl as staticWhatsappUrl } from "@/lib/site";
 import { useCms } from "@/hooks/use-cms";
 
 export function Navbar() {
+  const { cart } = useRentalCart();
+  const cartCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
   const cms = useCms();
   const site = cms.site || staticSite;
   const whatsappUrl = site.social?.whatsapp
@@ -38,7 +41,7 @@ export function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        className="fixed inset-x-0 top-0 z-50"
+        className="site-header fixed inset-x-0 top-0 z-50"
       >
         <nav
           className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-all duration-500 sm:px-8 ${
@@ -54,7 +57,7 @@ export function Navbar() {
             <span className="text-primary">.</span>
           </a>
 
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul className="hidden items-center gap-5 xl:flex">
             {navLinks.map((l) => (
               <li key={l.href}>
                 <a
@@ -68,7 +71,9 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <Magnetic className="hidden md:block">
+            <a href="/account" aria-label="My account and bookings" className="grid size-10 place-items-center rounded-full text-foreground/70 hover:bg-muted"><UserRound className="size-4" /></a>
+            <a href="/cart" aria-label={`Rental cart, ${cartCount} items`} className="relative grid size-10 place-items-center rounded-full text-foreground/70 hover:bg-muted"><ShoppingBag className="size-4" />{cartCount > 0 && <span className="absolute -right-1 -top-1 rounded-full bg-primary px-1.5 py-0.5 text-[9px] text-white">{cartCount}</span>}</a>
+            <Magnetic className="hidden xl:block">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -83,7 +88,7 @@ export function Navbar() {
               onClick={() => setOpen(true)}
               aria-label="Open menu"
               aria-expanded={open}
-              className="grid size-11 place-items-center rounded-full glass text-foreground md:hidden"
+              className="grid size-11 place-items-center rounded-full glass text-foreground xl:hidden"
             >
               <Menu className="size-5" />
             </button>
@@ -102,7 +107,7 @@ export function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-[60] bg-black/75 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[60] bg-black/75 backdrop-blur-sm xl:hidden"
               aria-hidden="true"
             />
 
@@ -112,10 +117,10 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-y-0 left-0 z-[70] flex w-[85%] max-w-xs flex-col justify-between border-r border-white/10 bg-background/95 p-6 backdrop-blur-2xl shadow-2xl md:hidden"
+              className="fixed inset-y-0 left-0 z-[70] flex w-[85%] max-w-xs flex-col justify-between overflow-y-auto border-r border-border bg-background/95 p-6 backdrop-blur-2xl shadow-2xl xl:hidden"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-white/10 pb-5">
+                <div className="flex items-center justify-between border-b border-border pb-5">
                   <a
                     href="/"
                     onClick={() => setOpen(false)}
@@ -128,7 +133,7 @@ export function Navbar() {
                     type="button"
                     onClick={() => setOpen(false)}
                     aria-label="Close menu"
-                    className="grid size-10 place-items-center rounded-full glass text-foreground hover:bg-white/10"
+                    className="grid size-10 place-items-center rounded-full glass text-foreground hover:bg-muted"
                   >
                     <X className="size-5" />
                   </button>
@@ -149,7 +154,7 @@ export function Navbar() {
                 </ul>
               </div>
 
-              <div className="border-t border-white/10 pt-6">
+              <div className="border-t border-border pt-6">
                 <a
                   href={whatsappUrl}
                   target="_blank"

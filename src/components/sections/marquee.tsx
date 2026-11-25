@@ -16,7 +16,7 @@ export function Marquee() {
   const partnerItems = cms.partners && cms.partners.length > 0 ? cms.partners : defaultItems;
   const row = [...partnerItems, ...partnerItems];
   return (
-    <div className="border-y border-white/10 bg-background py-6">
+    <div className="border-y border-border bg-background py-6">
       <div className="flex overflow-hidden">
         <div className="flex shrink-0 animate-marquee items-center gap-8 pr-8">
           {row.map((item, i) => (
